@@ -1,6 +1,8 @@
 '''
 Dual Pivot Quicksort with Yaroslavskiy's partitioning method
 '''
+import random
+from typing import List
 
 
 def dual_pivot_quicksort(array, left, right):
@@ -51,8 +53,19 @@ def sort_func(array, left, right):
     sorted_list.pop(0)
     return sorted_list
 
+def generate_input(n: int) -> List[int]:
+    return [i for i in range(1, n + 1)]
 
 if __name__ == '__main__':
-    test = [7,6,5,4,3,2,1]
-    sorted_list = sort_func(test, 0, len(test)-1)
-    print(sorted_list)
+    max_i: int = 12
+    N: int = 5
+    ns = [int(30 * 1.41 ** i) for i in range(max_i)]
+    args = [generate_input(n) for n in ns]
+    for ar in args:
+        random.shuffle(ar)
+    print(args)
+    for ar in args:
+        sorted_list = dual_pivot_quicksort(ar, 0, len(ar)-1)
+        print(sorted_list)
+
+
