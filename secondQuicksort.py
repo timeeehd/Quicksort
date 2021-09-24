@@ -54,5 +54,5 @@ def sort_func(array, left, right):
 
 if __name__ == '__main__':
     test = [7,6,5,4,3,2,1]
-    sorted_list = sort_func(gitest, 2, 5)
+    sorted_list = sort_func(test, 0, len(test)-1)
     print(sorted_list)
