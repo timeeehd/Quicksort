@@ -1,8 +1,10 @@
 '''
 Dual Pivot Quicksort with Yaroslavskiy's partitioning method
 '''
+import math
 import random
 from typing import List
+from utility import *
 
 
 def dual_pivot_quicksort(array, left, right):
@@ -52,12 +54,24 @@ def sort_func(array, left, right):
     return sorted_list
 
 
-def generate_input(n: int) -> List[int]:
-    return [i for i in range(1, n + 1)]
-
-
-def generate_negative_input(n: int) -> List[int]:
-    return [i for i in range(0, -n, -1)]
+# def generate_input(n: int) -> List[int]:
+#     return [i for i in range(1, n + 1)]
+#
+#
+# def generate_negative_input(n: int) -> List[int]:
+#     return [i for i in range(0, -n, -1)]
+#
+#
+# def generate_equal_input(n: int) -> List[int]:
+#     return [n for i in range(1, n + 1)]
+#
+#
+# def generate_random_input(n: int) -> List[int]:
+#     list = []
+#     for i in range(n):
+#         random_int = random.randint(1, int(math.sqrt(n)))
+#         list.append(random_int)
+#     return list
 
 
 if __name__ == '__main__':
@@ -70,7 +84,7 @@ if __name__ == '__main__':
         random.shuffle(sublist)
     print(args)
     for sublist in args:
-        sorted_list = dual_pivot_quicksort(sublist, 0, len(sublist) - 1)
+        sorted_list = sort_func(sublist, 0, len(sublist) - 1)
         print(sorted_list)
 
     # reversed sorted list
@@ -79,12 +93,26 @@ if __name__ == '__main__':
         sublist.reverse()
     print(reversed_args)
     for sublist in reversed_args:
-        sorted_list = dual_pivot_quicksort(sublist, 0, len(sublist) - 1)
+        sorted_list = sort_func(sublist, 0, len(sublist) - 1)
         print(sorted_list)
 
     # negative integer list
     negative_list = [generate_negative_input(n) for n in ns]
     print(negative_list)
     for sublist in negative_list:
-        sorted_list = dual_pivot_quicksort(sublist, 0, len(sublist) - 1)
+        sorted_list = sort_func(sublist, 0, len(sublist) - 1)
+        print(sorted_list)
+
+
+    equal_list = [generate_equal_input(n) for n in ns]
+    print(equal_list)
+    for sublist in equal_list:
+        sorted_list = sort_func(sublist, 0, len(sublist) - 1)
+        print(sorted_list)
+
+
+    random_list = [generate_random_input(n) for n in ns]
+    print(random_list)
+    for sublist in random_list:
+        sorted_list = sort_func(sublist, 0, len(sublist) - 1)
         print(sorted_list)

@@ -1,4 +1,4 @@
-import copy
+import random
 
 
 def quicksort_sent(array, left, right):
@@ -74,9 +74,65 @@ def quick_sort_no_sent(array, left, right):
     return array
 
 
+# def generate_input(n: int) -> List[int]:
+#     return [i for i in range(1, n + 1)]
+#
+#
+# def generate_negative_input(n: int) -> List[int]:
+#     return [i for i in range(0, -n, -1)]
+#
+#
+# def generate_equal_input(n: int) -> List[int]:
+#     return [n for i in range(1, n + 1)]
+#
+#
+# def generate_random_input(n: int) -> List[int]:
+#     list = []
+#     for i in range(n):
+#         random_int = random.randint(1, int(math.sqrt(n)))
+#         list.append(random_int)
+#     return list
+
+
 if __name__ == '__main__':
-    # test = [7,6,5,4,3,2,1]
-    test = [2, 3, 1, 4, 6, 7, 5]
-    # test = [1, 2, 3, 4, 5, 6, 7]
-    sorted_list = quick_sort_add_sent(test, 0, len(test) - 1)
-    print(sorted_list)
+    max_i: int = 5
+    N: int = 5
+    # random shuffled list
+    ns = [int(30 * 1.41 ** i) for i in range(max_i)]
+    args = [generate_input(n) for n in ns]
+    for sublist in args:
+        random.shuffle(sublist)
+    print(args)
+    for sublist in args:
+        sorted_list = quick_sort_add_sent(sublist, 0, len(sublist) - 1)
+        print(sorted_list)
+
+    # reversed sorted list
+    reversed_args = [generate_input(n) for n in ns]
+    for sublist in reversed_args:
+        sublist.reverse()
+    print(reversed_args)
+    for sublist in reversed_args:
+        sorted_list = quick_sort_add_sent(sublist, 0, len(sublist) - 1)
+        print(sorted_list)
+
+    # negative integer list
+    negative_list = [generate_negative_input(n) for n in ns]
+    print(negative_list)
+    for sublist in negative_list:
+        sorted_list = quick_sort_add_sent(sublist, 0, len(sublist) - 1)
+        print(sorted_list)
+
+
+    equal_list = [generate_equal_input(n) for n in ns]
+    print(equal_list)
+    for sublist in equal_list:
+        sorted_list = quick_sort_add_sent(sublist, 0, len(sublist) - 1)
+        print(sorted_list)
+
+
+    random_list = [generate_random_input(n) for n in ns]
+    print(random_list)
+    for sublist in random_list:
+        sorted_list = quick_sort_add_sent(sublist, 0, len(sublist) - 1)
+        print(sorted_list)
